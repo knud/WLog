@@ -34,7 +34,7 @@ public class iPhoneListener {
 				socket.receive(packet);
 				if (packet.getLength() > 0) {
 					// display response
-					String received = new String(packet.getData());
+					String received = new String(packet.getData(), 0, packet.getLength());
 					System.out.print(received );
 					pwriter.print(received);
 				}
