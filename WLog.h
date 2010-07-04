@@ -13,11 +13,12 @@
 #define WLOG_DEFAULT_IP_ADDR @"10.0.0.2"
 
 #define WLOG_NOTIFICATION @"WLogNotification"
+#define WLOG_STRING_KEY @"WLogString"
 
 // only define this if we need it
 // A good place to define WLOGGING is in the precompiled header file (.pch)
 #ifdef WLOGGING
-#define WLOG(__STRING) [[NSNotificationCenter defaultCenter] postNotificationName:WLOG_NOTIFICATION object:__STRING];	
+#define WLOG(__STRING) [[NSNotificationCenter defaultCenter] postNotificationName:WLOG_NOTIFICATION object:self userInfo:[NSDictionary dictionaryWithObject:__STRING forKey:WLOG_STRING_KEY]];	
 #else
 #define WLOG(...) /* */
 #endif

@@ -119,8 +119,12 @@ static WLog *sharedInstance = nil;
 	NSMutableString *logString = [NSMutableString stringWithCapacity:20];
 	NSDate *now = [NSDate date];
 	[logString appendFormat:@"WLOG:%@|",[[now description] substringToIndex:19]];
-	if ([[notification object] isKindOfClass:[NSString class]]) {
-		[logString appendFormat:@"%@\n",(NSString *)[notification object]];
+	
+	NSDictionary *dict = [notification userInfo];
+	NSString *notificationString = [dict objectForKey:WLOG_STRING_KEY];
+
+	if (notificationString != nil) {
+		[logString appendFormat:@"%@\n",notificationString];
 	}
 	// only process is network is enabled and socket initialized OK
 	if( enabled && (udpSocket != -1) )
