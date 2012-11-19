@@ -6,7 +6,7 @@ import java.net.DatagramSocket;
 import java.net.UnknownHostException;
 
 
-public class iPhoneListener {
+public class iPhoneListener { 
 
 	/**
 	 * @param args
