@@ -14,7 +14,7 @@
 
 @implementation WLog
 
-@synthesize enabled;
+@synthesize enabled; 
 
 static WLog *sharedInstance = nil; 
 
