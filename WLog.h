@@ -23,7 +23,7 @@
 #define WLOG(...) /* */
 #endif
 
-@interface WLog : NSObject {
+@interface WLog : NSObject { 
 	NSString *ipAddress;
 	BOOL enabled;
 	
